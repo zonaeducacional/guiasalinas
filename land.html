@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia Salinas da Margarida - Carregando</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%);
@@ -16,6 +15,8 @@
             padding: 0;
             overflow: hidden;
         }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.08);} }
         .loading-spinner {
             border: 6px solid #fff3e0;
             border-top: 6px solid #EA580C;
@@ -26,8 +27,6 @@
             margin: 0 auto;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .pulse { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
         .fade-in { animation: fade-in 1s; }
         @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
         .typing {
@@ -35,9 +34,7 @@
             border-right: 2px solid #fff;
             white-space: nowrap;
             width: 0;
-            animation:
-                typing 2.5s steps(28, end) forwards,
-                blink-caret 0.7s step-end infinite;
+            animation: typing 2.5s steps(28, end) forwards, blink-caret 0.7s step-end infinite;
         }
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink-caret { 50% { border-color: #fff; } }
@@ -45,10 +42,19 @@
 </head>
 <body class="flex items-center justify-center">
     <div class="text-center w-full max-w-md mx-auto px-6 fade-in">
-        <!-- Logo animado -->
+        <!-- Ícone flamingo SVG estilizado -->
         <div class="mb-8 pulse">
             <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-2xl">
-                <i data-lucide="palmtree" class="w-20 h-20 text-orange-500"></i>
+                <!-- SVG Flamingo minimalista/accent color -->
+                <svg width="80" height="80" viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="22" fill="#EA580C" stroke="#fff3e0" stroke-width="3"/>
+                  <path d="M20 34 Q18 28 28 26 Q38 24 30 14 Q24 8 16 14 Q12 18 18 26 Q22 32 20 34Z" fill="#FF69B4"/>
+                  <path d="M28 26 Q34 20 30 14" stroke="#FF69B4" stroke-width="2" fill="none"/>
+                  <rect x="22" y="34" width="2" height="10" rx="1" fill="#FF69B4"/>
+                  <rect x="26" y="34" width="2" height="10" rx="1" fill="#FF69B4"/>
+                  <path d="M15 12 Q14 10 16 10" stroke="#222" stroke-width="1.5" fill="none"/>
+                  <circle cx="17" cy="15" r="1.2" fill="#222"/>
+                </svg>
             </div>
         </div>
         <!-- Spinner -->
@@ -65,36 +71,28 @@
         <p class="text-sm text-white/80 mb-2">Carregando... <span id="countdown">5</span> segundos</p>
     </div>
     <script>
-        lucide.createIcons();
-        let progress = 0;
-        let countdown = 5;
+        let progress = 0, countdown = 5;
         const progressBar = document.getElementById('progress-bar');
         const countdownElement = document.getElementById('countdown');
-        // Progress bar animation
         const totalTime = 5000, updateInterval = 50, totalSteps = totalTime / updateInterval, progressIncrement = 100 / totalSteps;
         const progressInterval = setInterval(() => {
             progress += progressIncrement;
             progressBar.style.width = Math.min(progress, 100) + '%';
         }, updateInterval);
-        // Countdown timer
         const countdownTimer = setInterval(() => {
             countdown--;
             countdownElement.textContent = countdown;
             if (countdown <= 0) {
-                clearInterval(countdownTimer);
-                redirectToMainPage();
+                clearInterval(countdownTimer); redirectToMainPage();
             }
         }, 1000);
-        // Redirect
         function redirectToMainPage() {
-            clearInterval(progressInterval);
-            clearInterval(countdownTimer);
+            clearInterval(progressInterval); clearInterval(countdownTimer);
             document.body.style.opacity = '1';
-            document.body.style.transition = 'opacity 0.4s ease';
+            document.body.style.transition = 'opacity 0.5s';
             setTimeout(() => { document.body.style.opacity = '0'; }, 100);
-            setTimeout(() => { window.location.href = 'index.html'; }, 500);
+            setTimeout(() => { window.location.href = 'index.html'; }, 600);
         }
-        // Fallback: maximum wait 8s
         setTimeout(redirectToMainPage, 8000);
     </script>
 </body>

@@ -4,7 +4,6 @@ const assetsToCache = [
     'https://cdn.tailwindcss.com',
     'https://unpkg.com/lucide@latest'
 ];
-
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -19,7 +18,6 @@ self.addEventListener('install', event => {
             .then(() => self.skipWaiting())
     );
 });
-
 self.addEventListener('activate', event => {
     event.waitUntil(
         caches.keys().then(cacheNames => {
@@ -31,7 +29,6 @@ self.addEventListener('activate', event => {
         }).then(() => self.clients.claim())
     );
 });
-
 self.addEventListener('fetch', event => {
     if (event.request.method !== 'GET') return;
     event.respondWith(
