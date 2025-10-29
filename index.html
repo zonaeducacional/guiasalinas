@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Salinas da Margarida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="theme-color" content="#EA580C"/>
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .nav-active { color: #EA580C; }
+        .page { transition: opacity 0.3s; opacity: 0; position: absolute; top: 0; left: 0; right: 0; visibility: hidden; }
+        .page.active { opacity: 1; position: relative; visibility: visible; }
+        main { position: relative; min-height: calc(100vh - 6rem); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-orange-50 via-orange-100 to-orange-200 antialiased">
+
+    <!-- Cabeçalho Fixo -->
+    <header class="fixed top-0 left-0 right-0 bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg z-20">
+        <div class="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
+            <img src="icon-192x192.png" alt="Logo Salinas" class="h-10 w-10 rounded-xl shadow-lg">
+            <h1 class="text-2xl font-bold text-white tracking-wide drop-shadow">Guia Salinas da Margarida</h1>
+            <button id="menu-btn" class="block md:hidden text-white"><i data-lucide="menu"></i></button>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-4xl mx-auto pt-24 pb-28">
+
+        <!-- INÍCIO -->
+        <section id="page-inicio" data-page="inicio" class="page px-4 space-y-4 active">
+            <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://educ.nekoweb.org/IDSalinas/Salinas-da-Margarida-768x403-1.jpg" alt="Vista panorâmica de Salinas da Margarida" class="w-full h-56 object-cover brightness-75">
+                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <h2 class="text-4xl font-extrabold text-white text-center px-4 drop-shadow">Descubra o Coração do Recôncavo</h2>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow transition hover:shadow-lg">
+                <h3 class="text-2xl font-semibold text-orange-600 mb-2">Bem-vindo, Viajante!</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Prepare-se para visitar uma das mais belas cidades do Recôncavo da Bahia, situado na Ponta da Margarida, um destino que oferece pontos de vista sedutores e um legado histórico que une indústria e mistério. Esta aprazível comunidade que nasceu como um monumento industrial, convida você a fazer um passeio encantador e desvendar as origens da "MARGARIDA".<br>
+                    <strong>Como disse o visitante ilustre:</strong><br>
+                    "Dou parabens á minha sorte, que me proporcionou um ensejo feliz de visitar uma das mais bellas povoações do reconcavo da Bahia."<br>
+                    Alfredo M. Pinto, 1901
+                </p>
+            </div>
+            <button id="install-button" class="hidden w-full flex items-center justify-center gap-2 bg-orange-600 text-white text-center font-semibold p-3 rounded-xl shadow hover:bg-orange-700 transition-colors">
+                <i data-lucide="download-cloud" class="w-5 h-5"></i>
+                Instalar App no Celular
+            </button>
+            <a href="https://www.salinasdamargarida.ba.gov.br/" target="_blank" class="block bg-gradient-to-r from-orange-500 to-orange-600 text-white text-center font-semibold p-3 rounded-xl shadow hover:from-orange-600 hover:to-orange-700 transition-colors">
+                Site Oficial da Prefeitura
+            </a>
+        </section>
+
+        <!-- HISTÓRIA -->
+        <section id="page-historia" data-page="historia" class="page px-4 space-y-4">
+            <div class="bg-white p-6 rounded-2xl shadow">
+                <h2 class="text-2xl font-bold text-orange-600 mb-3">As Raízes de Salinas</h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>Nas brumas do tempo, onde o Paraguaçu encontra o mar, a história de Salinas da Margarida se desenha. Não é apenas um local no mapa; é um palimpsesto de memórias, lutas e transformações.</p>
+                    <p>Remontando aos povos originários, passando pelas sesmarias e o período colonial, a vocação de Salinas para o sal e a pesca sempre foi evidente. Cada pedra do cais antigo, cada ruína, não é mero vestígio, mas documento a céu aberto, aguardando o olhar do historiador.</p>
+                    <img src="https://placehold.co/600x300/57534E/FFFFFF?text=Foto+Histórica" alt="Foto antiga de Salinas" class="w-full rounded-lg object-cover shadow">
+                    <p>Investigar Salinas é mergulhar nas contradições e na resiliência de um povo que, entre marés e disputas, forjou sua identidade única no Recôncavo Baiano.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PONTOS TURÍSTICOS -->
+        <section id="page-pontos" data-page="pontos" class="page px-4 space-y-6">
+            <h2 class="text-2xl font-bold text-orange-600 mb-2">O que Visitar</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow overflow-hidden transition hover:scale-105">
+                    <img src="https://placehold.co/600x300/22C55E/FFFFFF?text=Ponta+do+Dourado" alt="Ponta do Dourado" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-orange-600 mb-1">Ponta do Dourado</h3>
+                        <p class="text-gray-700">O pôr do sol mais famoso da região. Um espetáculo de cores que reflete nas águas calmas da baía.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow overflow-hidden transition hover:scale-105">
+                    <img src="https://placehold.co/600x300/F97316/FFFFFF?text=Praia+da+Gamboa" alt="Praia da Gamboa" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-orange-600 mb-1">Praia da Gamboa</h3>
+                        <p class="text-gray-700">Águas tranquilas e perfeitas para um banho relaxante. Ótima infraestrutura de barracas.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow overflow-hidden transition hover:scale-105">
+                    <img src="https://placehold.co/600x300/3B82F6/FFFFFF?text=Ilha+de+Itaparica+(Vista)" alt="Vista para Ilha de Itaparica" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-orange-600 mb-1">Orla (Vista para Itaparica)</h3>
+                        <p class="text-gray-700">Uma caminhada pela orla revela uma vista deslumbrante da Ilha de Itaparica, logo à frente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ONDE COMER -->
+        <section id="page-comer" data-page="comer" class="page px-4 space-y-6">
+            <h2 class="text-2xl font-bold text-orange-600 mb-2">Onde Comer</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow overflow-hidden transition hover:scale-105">
+                    <img src="https://placehold.co/600x300/EF4444/FFFFFF?text=Moqueca" alt="Moqueca baiana" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-orange-600 mb-1">Restaurante da Nalva</h3>
+                        <p class="text-gray-700">Famoso pela autêntica moqueca do recôncavo, preparada com peixe fresco e muito dendê.</p>
+                        <a href="tel:+5571987654321" class="text-orange-600 font-semibold mt-2 inline-block">Ligar</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow overflow-hidden transition hover:scale-105">
+                    <img src="https://placehold.co/600x300/EAB308/FFFFFF?text=Mariscada" alt="Prato de mariscada" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-orange-600 mb-1">Bar e Restaurante O Pescador</h3>
+                        <p class="text-gray-700">Especializado em mariscadas e peixe frito na beira da praia. Sinta a brisa do mar.</p>
+                        <a href="tel:+5571912345678" class="text-orange-600 font-semibold mt-2 inline-block">Ligar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAPA -->
+        <section id="page-mapa" data-page="mapa" class="page px-4">
+            <h2 class="text-2xl font-bold text-orange-600 mb-4">Explore o Mapa</h2>
+            <div class="aspect-video w-full rounded-2xl shadow-md overflow-hidden border-2 border-white">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31089.33966956627!2d-38.77534438318721!3d-12.8764009022668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x716141b21a8d671%3A0x6d85a1a1f09c6218!2sSalinas%20da%20Margarida%20-%20BA!5e0!3m2!1spt-BR!2sbr!4v1729801314643!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- MAIS -->
+        <section id="page-mais" data-page="mais" class="page px-4 space-y-4">
+            <h2 class="text-2xl font-bold text-orange-600 mb-2">Mais Opções</h2>
+            <div class="bg-white rounded-2xl shadow overflow-hidden">
+                <nav class="flex flex-col">
+                    <button class="internal-nav-button flex items-center gap-4 p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors" data-target="historia">
+                        <i data-lucide="book-open" class="w-6 h-6 text-orange-600"></i>
+                        <span class="text-lg font-semibold text-gray-800">História</span>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 ml-auto"></i>
+                    </button>
+                    <button class="internal-nav-button flex items-center gap-4 p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors" data-target="cultura">
+                        <i data-lucide="calendar-check" class="w-6 h-6 text-orange-600"></i>
+                        <span class="text-lg font-semibold text-gray-800">Cultura e Eventos</span>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 ml-auto"></i>
+                    </button>
+                    <button class="internal-nav-button flex items-center gap-4 p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors" data-target="galeria">
+                        <i data-lucide="camera" class="w-6 h-6 text-orange-600"></i>
+                        <span class="text-lg font-semibold text-gray-800">Galeria de Fotos</span>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 ml-auto"></i>
+                    </button>
+                    <button class="internal-nav-button flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors" data-target="info">
+                        <i data-lucide="info" class="w-6 h-6 text-orange-600"></i>
+                        <span class="text-lg font-semibold text-gray-800">Informações Úteis</span>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 ml-auto"></i>
+                    </button>
+                </nav>
+            </div>
+        </section>
+
+        <!-- CULTURA -->
+        <section id="page-cultura" data-page="cultura" class="page px-4 space-y-4">
+            <h2 class="text-2xl font-bold text-orange-600 mb-2">Cultura e Eventos</h2>
+            <div class="bg-white rounded-2xl shadow overflow-hidden">
+                <img src="https://placehold.co/600x300/D946EF/FFFFFF?text=Festa+Popular" alt="Festa Popular" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-orange-600 mb-1">Festa de Reis</h3>
+                    <p class="text-gray-700">Tradição centenária que enche as ruas de música, dança e devoção em janeiro.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow overflow-hidden">
+                <img src="https://placehold.co/600x300/EC4899/FFFFFF?text=Regata" alt="Regata de Salinas" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-orange-600 mb-1">Regata de Canoas</h3>
+                    <p class="text-gray-700">Pescadores e entusiastas mostram sua perícia e celebram a relação da cidade com o mar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERIA -->
+        <section id="page-galeria" data-page="galeria" class="page px-4 space-y-4">
+            <h2 class="text-2xl font-bold text-orange-600 mb-4">Galeria de Fotos</h2>
+            <div class="grid grid-cols-3 gap-2">
+                <img src="https://placehold.co/200x200/EA580C/FFFFFF?text=Foto+1" alt="Foto 1" class="w-full h-auto object-cover rounded aspect-square shadow">
+                <img src="https://placehold.co/200x200/16A34A/FFFFFF?text=Foto+2" alt="Foto 2" class="w-full h-auto object-cover rounded aspect-square shadow">
+                <img src="https://placehold.co/200x200/F97316/FFFFFF?text=Foto+3" alt="Foto 3" class="w-full h-auto object-cover rounded aspect-square shadow">
+                <img src="https://placehold.co/200x200/EF4444/FFFFFF?text=Foto+4" alt="Foto 4" class="w-full h-auto object-cover rounded aspect-square shadow">
+                <img src="https://placehold.co/200x200/EAB308/FFFFFF?text=Foto+5" alt="Foto 5" class="w-full h-auto object-cover rounded aspect-square shadow">
+                <img src="https://placehold.co/200x200/3B82F6/FFFFFF?text=Foto+6" alt="Foto 6" class="w-full h-auto object-cover rounded aspect-square shadow">
+            </div>
+        </section>
+
+        <!-- INFORMAÇÕES ÚTEIS -->
+        <section id="page-info" data-page="info" class="page px-4 space-y-4">
+            <h2 class="text-2xl font-bold text-orange-600 mb-2">Informações Úteis</h2>
+            <div class="bg-white rounded-2xl shadow overflow-hidden">
+                <div class="p-4 border-b">
+                    <h3 class="text-lg font-semibold text-gray-800">Polícia Militar</h3>
+                    <p class="text-gray-700">Emergência: <a href="tel:190" class="text-orange-600">190</a></p>
+                </div>
+                <div class="p-4 border-b">
+                    <h3 class="text-lg font-semibold text-gray-800">SAMU</h3>
+                    <p class="text-gray-700">Emergência: <a href="tel:192" class="text-orange-600">192</a></p>
+                </div>
+                <div class="p-4 border-b">
+                    <h3 class="text-lg font-semibold text-gray-800">Balsa (Ferry Boat)</h3>
+                    <p class="text-gray-700">Horários e Infos: <a href="#" class="text-orange-600">[Link ou Telefone]</a></p>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Transporte Terrestre (Ônibus)</h3>
+                    <p class="text-gray-700">Viação: <a href="#" class="text-orange-600">[Nome da Empresa]</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Navegação Fixa (Mobile First) -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-inner z-20">
+        <div class="max-w-4xl mx-auto px-4 py-2 flex justify-around">
+            <button data-target="inicio" class="nav-button flex flex-col items-center justify-center text-gray-600 nav-active">
+                <i data-lucide="home" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Início</span>
+            </button>
+            <button data-target="pontos" class="nav-button flex flex-col items-center justify-center text-gray-600">
+                <i data-lucide="palmtree" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Pontos</span>
+            </button>
+            <button data-target="comer" class="nav-button flex flex-col items-center justify-center text-gray-600">
+                <i data-lucide="utensils" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Comer</span>
+            </button>
+            <button data-target="mapa" class="nav-button flex flex-col items-center justify-center text-gray-600">
+                <i data-lucide="map" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Mapa</span>
+            </button>
+            <button data-target="mais" class="nav-button flex flex-col items-center justify-center text-gray-600">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Mais</span>
+            </button>
+        </div>
+    </nav>
+
+    <script>
+        // INSTALAÇÃO PWA
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (installButton) installButton.classList.remove('hidden');
+        });
+        if (installButton) {
+            installButton.addEventListener('click', async () => {
+                installButton.classList.add('hidden');
+                deferredPrompt.prompt();
+                await deferredPrompt.userChoice;
+                deferredPrompt = null;
+            });
+        }
+        window.addEventListener('appinstalled', () => {
+            if (installButton) installButton.classList.add('hidden');
+            deferredPrompt = null;
+        });
+
+        lucide.createIcons();
+
+        // Navegação
+        const allPages = document.querySelectorAll('.page');
+        const mainNavButtons = document.querySelectorAll('.nav-button');
+        const internalNavButtons = document.querySelectorAll('.internal-nav-button');
+        function showPage(pageId) {
+            allPages.forEach(page => page.classList.remove('active'));
+            setTimeout(() => {
+                allPages.forEach(page => page.style.display = 'none');
+                const targetPage = document.getElementById(`page-${pageId}`);
+                if (targetPage) {
+                    targetPage.style.display = 'block';
+                    setTimeout(() => targetPage.classList.add('active'), 10);
+                }
+                window.scrollTo(0, 0);
+            }, 50);
+        }
+        mainNavButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showPage(button.dataset.target);
+                mainNavButtons.forEach(btn => btn.classList.remove('nav-active'));
+                button.classList.add('nav-active');
+            });
+        });
+        internalNavButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showPage(button.dataset.target);
+                mainNavButtons.forEach(btn => btn.classList.remove('nav-active'));
+                document.querySelector('.nav-button[data-target="mais"]').classList.add('nav-active');
+            });
+        });
+
+        // Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => { console.log('SW registrado! Escopo:', registration.scope); })
+                    .catch(error => { console.error('Falha ao registrar SW:', error); });
+            });
+        }
+    </script>
+</body>
+</html>

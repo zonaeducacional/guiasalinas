@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Salinas da Margarida - Carregando</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ea580c 0%, #fb923c 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .loading-spinner {
+            border: 6px solid #fff3e0;
+            border-top: 6px solid #EA580C;
+            border-radius: 50%;
+            width: 72px;
+            height: 72px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+        .fade-in { animation: fade-in 1s; }
+        @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+        .typing {
+            overflow: hidden;
+            border-right: 2px solid #fff;
+            white-space: nowrap;
+            width: 0;
+            animation:
+                typing 2.5s steps(28, end) forwards,
+                blink-caret 0.7s step-end infinite;
+        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { 50% { border-color: #fff; } }
+    </style>
+</head>
+<body class="flex items-center justify-center">
+    <div class="text-center w-full max-w-md mx-auto px-6 fade-in">
+        <!-- Logo animado -->
+        <div class="mb-8 pulse">
+            <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-2xl">
+                <i data-lucide="palmtree" class="w-20 h-20 text-orange-500"></i>
+            </div>
+        </div>
+        <!-- Spinner -->
+        <div class="loading-spinner mb-6"></div>
+        <!-- Título animado -->
+        <h1 class="text-4xl font-bold text-white mb-2 typing">Guia Salinas</h1>
+        <p class="text-lg text-white/90 mb-8 fade-in" style="animation-delay:2.5s;animation-fill-mode:forwards;">
+            Descubra o coração do Recôncavo Baiano
+        </p>
+        <!-- Barra de progresso -->
+        <div class="w-64 h-2 bg-white/50 rounded-full mx-auto overflow-hidden shadow-inner mb-4">
+            <div id="progress-bar" class="h-full bg-orange-600 rounded-full transition-all duration-100" style="width: 0%"></div>
+        </div>
+        <p class="text-sm text-white/80 mb-2">Carregando... <span id="countdown">5</span> segundos</p>
+    </div>
+    <script>
+        lucide.createIcons();
+        let progress = 0;
+        let countdown = 5;
+        const progressBar = document.getElementById('progress-bar');
+        const countdownElement = document.getElementById('countdown');
+        // Progress bar animation
+        const totalTime = 5000, updateInterval = 50, totalSteps = totalTime / updateInterval, progressIncrement = 100 / totalSteps;
+        const progressInterval = setInterval(() => {
+            progress += progressIncrement;
+            progressBar.style.width = Math.min(progress, 100) + '%';
+        }, updateInterval);
+        // Countdown timer
+        const countdownTimer = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            if (countdown <= 0) {
+                clearInterval(countdownTimer);
+                redirectToMainPage();
+            }
+        }, 1000);
+        // Redirect
+        function redirectToMainPage() {
+            clearInterval(progressInterval);
+            clearInterval(countdownTimer);
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.4s ease';
+            setTimeout(() => { document.body.style.opacity = '0'; }, 100);
+            setTimeout(() => { window.location.href = 'index.html'; }, 500);
+        }
+        // Fallback: maximum wait 8s
+        setTimeout(redirectToMainPage, 8000);
+    </script>
+</body>
+</html>
